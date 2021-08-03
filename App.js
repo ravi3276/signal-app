@@ -8,6 +8,7 @@ import Login from './Login';
 import Register from './Register';
 import Home from './Home';
 import AddChat from './AddChat';
+import Chat from './Chat';
 
 const Stack = createStackNavigator();
 const globalScreenOption={
@@ -23,6 +24,8 @@ export default function App() {
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="AddChat" component={AddChat} />
+        <Stack.Screen name="Chat" component={Chat} />
+
         </Stack.Navigator>
     </NavigationContainer>
   );

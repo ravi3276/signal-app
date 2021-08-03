@@ -9,6 +9,14 @@ import { AntDesign,SimpleLineIcons } from '@expo/vector-icons';
 
 
 const Home = ({navigation}) => { 
+
+    const enterChat=(id,chatName) => {
+        navigation.navigate('Chat',{
+            id,
+            chatName
+        })
+    }
+
     const [chats,setChats]=useState([]);
     const signOut=()=>{
         auth.signOut().then(()=>{
@@ -59,19 +67,19 @@ const Home = ({navigation}) => {
                 </View>
             )
         })
-    }, [])
+    }, [navigation])
 
     return (
         <SafeAreaView>
             <StatusBar style="light"/>
-           <ScrollView>
+           <ScrollView style={styles.container}>
                {
                    chats.map(({id,data:{chatName}})=>(
                         <ChatScreen
                         key={id}
                          id={id} 
                          chatName={chatName}
-                         enterChat="this is regards about react native do u know native if u don't look that once"
+                         enterChat={enterChat}
                          />
                    ))
                }
@@ -83,4 +91,8 @@ const Home = ({navigation}) => {
 
 export default Home
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+    container:{
+        height:"100%"
+    }
+})
